@@ -47,4 +47,4 @@ class Aquarium:
 
         print("Day", self.__day, "\t   Males:", males, "\t   Females:", females, "\t   Dead:", dead, "\t Eaten", eaten)
         self.__day = self.__day + 1
-
+    
