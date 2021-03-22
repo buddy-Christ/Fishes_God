@@ -64,9 +64,9 @@ class Fish:
     @classmethod
     def born(cls, dad, mom):
         children = []
-        if dad.canMakeNewFish() and mom.canMakeNewFish() and dad.sex() != mom.sex() and dad.color == mom.color:
+        if dad.canMakeNewFish() and mom.canMakeNewFish() and dad.sex() != mom.sex() and dad.__class__ == mom.__class__:
             for i in range(0, random.randint(0, 4)):
-                children.append(Fish())
+                children.append(mom.__class__())
         return children
           
 
@@ -80,6 +80,8 @@ class GanniFish(Fish):
     color = "Black"
     def canEat(self):
         return True
+    def canBeEaten(self):
+        return False
 
 class SimpleFish(Fish):
     color = "Green"

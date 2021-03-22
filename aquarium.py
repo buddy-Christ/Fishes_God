@@ -17,6 +17,8 @@ class Aquarium:
         newFishes = []
         for i in range(0, len(self.__fishes)):
             self.__fishes[i].step()
+            if len(self.__fishes) > 1000:
+                self.__fishes[i].step()
             first = random.randint(0,len(self.__fishes)-1)
             second = random.randint(0,len(self.__fishes)-1)
             newFishes = newFishes + fish.Fish.born(self.__fishes[first], self.__fishes[second])
