@@ -3,10 +3,10 @@ import random
 class Fish:
     __age = 0
     __sex = "Unknown"
-    __kind = 0
+    __color = ""
 
-    def kind(self):
-        return self.__kind
+    def color(self):
+        return self.__color
 
     def sex(self):
         return self.__sex
@@ -64,7 +64,7 @@ class Fish:
     @classmethod
     def born(cls, dad, mom):
         children = []
-        if dad.canMakeNewFish() and mom.canMakeNewFish() and dad.sex() != mom.sex() and dad.kind == mom.kind:
+        if dad.canMakeNewFish() and mom.canMakeNewFish() and dad.sex() != mom.sex() and dad.color == mom.color:
             for i in range(0, random.randint(0, 4)):
                 children.append(Fish())
         return children
@@ -72,16 +72,24 @@ class Fish:
 
 
 class StrongFish(Fish):
-    kind = 1
+    color = "Red"
     def canMakeNewFish(self):
         return True
 
 class GanniFish(Fish):
-    kind = 2
+    color = "Black"
     def canEat(self):
         return True
 
 class SimpleFish(Fish):
-    kind = 3
+    color = "Green"
     def canEat(self):
         return False
+
+class ProggresiveFish(Fish):
+    color = "Afro-American"
+    def canBeEaten(self):
+        return True
+
+class SubmarineFish(Fish):
+    color = "Yellow"

@@ -36,15 +36,14 @@ class Aquarium:
         for i in range(0, len(self.__fishes)):
             if self.__fishes[i].isAlive():
                 if self.__fishes[i].sex() == "Male":
-                    males = males + 1
+                    males += 1
                 else:
-                    females = females + 1
+                    females += 1
             else:
-                dead = dead + 1
+                dead += 1
             if self.__fishes[i].isEaten():
                 eaten += 1
 
 
         print("Day", self.__day, "\t   Males:", males, "\t   Females:", females, "\t   Dead:", dead, "\t Eaten", eaten)
         self.__day = self.__day + 1
-    
