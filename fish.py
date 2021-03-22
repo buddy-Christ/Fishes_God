@@ -3,7 +3,11 @@ import random
 class Fish:
     __age = 0
     __sex = "Unknown"
-    view = 0
+    __kind = 0
+
+    def kind(self):
+        return self.__kind
+
     def sex(self):
         return self.__sex
 
@@ -60,7 +64,7 @@ class Fish:
     @classmethod
     def born(cls, dad, mom):
         children = []
-        if dad.canMakeNewFish() and mom.canMakeNewFish() and dad.sex() != mom.sex() and dad.view == mom.view:
+        if dad.canMakeNewFish() and mom.canMakeNewFish() and dad.sex() != mom.sex() and dad.kind == mom.kind:
             for i in range(0, random.randint(0, 4)):
                 children.append(Fish())
         return children
@@ -68,16 +72,16 @@ class Fish:
 
 
 class StrongFish(Fish):
-    view = 1
+    kind = 1
     def canMakeNewFish(self):
         return True
 
 class GanniFish(Fish):
-    view = 2
+    kind = 2
     def canEat(self):
         return True
 
 class SimpleFish(Fish):
-    view = 3
+    kind = 3
     def canEat(self):
         return False
